@@ -1,24 +1,24 @@
 # [Project Name]
 
-Created by [team member], [team member], and [team member].
+Created by Mekhi Miller and Mekhi Tudor.
 
 ## 🚀 Mission statement
 
-Our application, [app name] is for [target audience]. It allows users to [what it does and why audience would use it]
+Our application, [app name] is for Anime Fans. It allows users to search for anime recommendations easily, and organize their watchlist accordingly. 
 
 ## API & React Router
 
-This application will use the [name of API] API. Below are the documentation and specific endpoints we intend to use and the front-end pages that will use them.
+This application will use the Jikan API. Below are the documentation and specific endpoints we intend to use and the front-end pages that will use them.
 
 - Link to API documentation: [Link goes here]
-- API endpoint #1
-  - Description of endpoint
+- API endpoint #1: Requesting: https://api.jikan.moe/v4/anime?q={USER_INPUT}&sfw
+  - Description of endpoint: to search through the entire database for anime
   - List of data values used by the endpoint
-- API endpoint #2
-  - Description of endpoint
+- API endpoint #2: https://api.jikan.moe/v4/top/anime
+  - Description of endpoint: top anime trending currently
   - List of data values used by the endpoint
-- API endpoint #3
-  - Description of endpoint
+- API endpoint #3: https://api.jikan.moe/v4/anime/{ANIME_ID}/full
+  - Description of endpoint: for separate pages of Anime
   - List of data values used by the endpoint
 
 [If your API requires an API key, say so here.]
