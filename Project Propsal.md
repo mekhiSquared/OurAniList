@@ -90,8 +90,4 @@ To ensure that we can complete all core features of the application in 1 week, w
 
 Below, you can find wireframes for our project. Each wireframe shows a different page of our application as well as the key components of the application. Details such as specific text values or images are intentionally not included:
 
-[Wireframe for page 1]
 <img width="875" alt="Screen Shot 2024-08-20 at 2 56 33 PM" src="https://github.com/user-attachments/assets/78bf0f76-d09e-4b5f-a2b7-176049801765">
-
-
-[Wireframe for page 2]
