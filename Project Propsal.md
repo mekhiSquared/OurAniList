@@ -4,7 +4,7 @@ Created by Mekhi Miller and Mekhi Tudor.
 
 ## 🚀 Mission statement
 
-Our application, ANIlist is for Anime Fans. It allows users to search for anime recommendations easily, and organize their watchlist accordingly. 
+Our application, ANIList is for Anime Fans. It allows users to search for anime recommendations easily, and organize their watchlist accordingly. 
 
 ## API & React Router
 
@@ -37,8 +37,8 @@ The application will feature the following frontend routes and core features:
 
 * On the `/` path, users will be greeted with a home page
 * On the `/trending` path, users can view currently trending anime in the world
-* On the `/anime` path, users can view the details of the anime
-* On the `/anime-search` path, users can search through an entire database of previously aired and currently airing anime.
+* On the `/anime/:id` path, users can view the details of the anime
+* On the `/results` path, users can search through an entire database of previously aired and currently airing anime.
 
 ## 🤔 Stretch User Stories
 
@@ -53,8 +53,8 @@ If time permits, the following stretch features will be implemented in order of 
 To ensure that we can complete all core features of the application in 1 week, we will aim to complete tasks according to the following timeline:
 
 **8/20**
-- [ ] Project Prosal 
-- [ ] Wire-frame done 
+- [x] Project Prosal 
+- [x] Wire-frame done 
 - [ ] Component design done 
 
 **8/21**
