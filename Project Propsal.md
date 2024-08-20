@@ -1,25 +1,55 @@
-# [Project Name]
+# OurAniApp
 
 Created by Mekhi Miller and Mekhi Tudor.
 
 ## 🚀 Mission statement
 
-Our application, [app name] is for Anime Fans. It allows users to search for anime recommendations easily, and organize their watchlist accordingly. 
+Our application, OurAniApp is for Anime Fans. It allows users to search for anime recommendations easily, and organize their watchlist accordingly. 
 
 ## API & React Router
 
 This application will use the Jikan API. Below are the documentation and specific endpoints we intend to use and the front-end pages that will use them.
 
-- Link to API documentation: [Link goes here]
+- Link to API documentation:[ [Link goes here]](https://jikan.moe/)
 - API endpoint #1: Requesting: https://api.jikan.moe/v4/anime?q={USER_INPUT}&sfw
-  - Description of endpoint: to search through the entire database for anime
-  - List of data values used by the endpoint
+  - Description of endpoint: to search through the entire database for anime and will return an array of objects.
+  - For each anime, we will use the images, title and ID's
 - API endpoint #2: https://api.jikan.moe/v4/top/anime
   - Description of endpoint: top anime trending currently
-  - List of data values used by the endpoint
+  -   - For each anime, we will use the images, title and ID's
 - API endpoint #3: https://api.jikan.moe/v4/anime/{ANIME_ID}/full
   - Description of endpoint: for separate pages of Anime
-  - List of data values used by the endpoint
+  - For each anime we will display these endpoints: * "mal_id"
+* 		"url"
+* 		"images"
+* 		"trailer”
+* 		"approved"
+* 		"title_english"
+* 		"title_japanese"
+* 		"type"
+* 		"episodes"
+* 		"status"
+* 		"airing"
+* 		"aired"
+* 		"duration"
+* 		"rating"
+* 		"score"
+* 		"scored_by"
+* 		"rank"
+* 		"popularity"
+* 		"synopsis"
+* 		"background"
+* 		"season"
+* 		"year"
+* 		"producers"
+* 		"licensors"
+* 		"studios"
+* 		"genres"
+* 		"themes"
+* 		"demographics"
+* 		"theme"
+
+  - Formatted to be more eye-friendly
 
 [If your API requires an API key, say so here.]
 
@@ -38,9 +68,9 @@ This application will use the Jikan API. Below are the documentation and specifi
 
 The application will feature the following frontend routes and core features:
 
-* On the `/example` page, users can...
-* On the `/example` page, users can...
-* On the `/example` page, users can...
+* On the `/trending` page, users can view currently trending anime in the world
+* On the `/anime` pages, users can view the details of the anime
+* On the `/anime-search` page, users can search through an entire database of previously aired and currently airing anime.
 
 **Example:**
 - On the `/artworks` page, users can view a grid of all artwork
@@ -52,9 +82,9 @@ The application will feature the following frontend routes and core features:
 
 If time permits, the following stretch features will be implemented in order of priority:
 
-* Users will be able to...
-* Users will be able to...
-* Users will be able to...
+* Users will be able to save anime to a watchlist
+* Users will be able to sort their watch list based on genre, length etc..
+* Users will be able to rate their favorite anime and build a profile around what they like.
 
 **Example:**
 * Users will be able to save and view favorited artworks using local storage
@@ -65,7 +95,7 @@ If time permits, the following stretch features will be implemented in order of 
 To ensure that we can complete all core features of the application in 1 week, we will aim to complete tasks according to the following timeline:
 
 **Day 1**
-- [ ] Ticket description and due date
+- [ ] Project set-up and lay-out
 - [ ] Ticket description and due date
 - [ ] Ticket description and due date
 
