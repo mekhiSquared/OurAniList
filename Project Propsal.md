@@ -52,31 +52,40 @@ If time permits, the following stretch features will be implemented in order of 
 
 To ensure that we can complete all core features of the application in 1 week, we will aim to complete tasks according to the following timeline:
 
-**Day 1**
-- [ ] Project set-up and lay-out
+**8/20**
+- [ ] Project Prosal 
+- [ ] Wire-frame done 
+- [ ] Component design done 
+
+**8/21**
+- [ ] Scrum Board
+- [ ] Project structure document/skeleton code
+- [ ] Start Building
+
+**8/22** BUILD DAY
+- [ ] working on completing the application
+      
+
+
+**8/23**
+- [ ] Minimum Viable Project  complete
 - [ ] Ticket description and due date
 - [ ] Ticket description and due date
 
-**Day 2**
-- [ ] Ticket description and due date
-- [ ] Ticket description and due date
-- [ ] Ticket description and due date
+**8/24 - 8/26**
+- [ ] Styling
+- [ ] Stretch Features
+- [ ] Clean Up [finishing code we didn't have a chance to complete]
 
-**Day 3** (MVP due by the end of the day)
-- [ ] Ticket description and due date
-- [ ] Ticket description and due date
-- [ ] Ticket description and due date
+**8/27**
+- [ ] Presentation Slides
+- [ ] Presentation Script
+- [ ] Presentation Video
+- [ ] Reflections
+- [ ] Stretch Deployed Project
 
-**Day 4**
-- [ ] Ticket description and due date
-- [ ] Ticket description and due date
-- [ ] Ticket description and due date
 
-**Day 5**
-- [ ] Ticket description and due date
-- [ ] Ticket description and due date
-- [ ] Ticket description and due date
-
+      
 ## Wireframes of each page in your application
 
 Below, you can find wireframes for our project. Each wireframe shows a different page of our application as well as the key components of the application. Details such as specific text values or images are intentionally not included:
