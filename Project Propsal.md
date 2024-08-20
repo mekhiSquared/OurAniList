@@ -1,4 +1,4 @@
-# ANIlist
+# ANIList
 
 Created by Mekhi Miller and Mekhi Tudor.
 
