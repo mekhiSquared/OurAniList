@@ -6,13 +6,14 @@ import handleFetch from "../utils";
 
 const AnimeProvider = ({ children }) => {
 	// these states are for the fetch data
-	const [animeData, setAnimeData] = useState([]);
+	const [trendingAnimeList, setTrendingAnimeList] = useState([]);
 	const [fetchError, setFetchError] = useState(null);
 
 	// useEffect hook to fetch data once
 	useEffect(() => {
 		const doFetch = async => {
 			// fetch and set data
+			// this fetch will probably only be for the trending anime
 		};
 		doFetch();
 	}, []);
