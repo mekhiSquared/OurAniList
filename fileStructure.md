@@ -1,1 +1,33 @@
 # File Structure
+
+- src
+  - assets
+    - any images or anything like that
+  - components
+    - HomeButton.jsx
+    - TrendingButton.jsx
+    - Nav.jsx
+    - SearchBar.jsx
+    - ImageContainer.jsx
+    - AnimeCardGrid.jsx
+    - AnimeCard.jsx
+    - TrendingAnimeCardList.jsx
+    - TrendingAnimeCard.jsx
+    - AnimeSpecs.jsx
+  - context
+    - AnimeContext.jsx
+    - AnimeProvider.jsx
+  - pages
+    - HomePage.jsx
+    - TrendingPage.jsx
+    - ResultsPage.jsx
+    - AnimeSpecsPage.jsx
+    - NotFoundPage.jsx
+  - App.css
+  - App.jsx
+  - index.css
+  - main.jsx
+  - utils.js
+- index.html
+- db.json (?)
+- ... all those other files
