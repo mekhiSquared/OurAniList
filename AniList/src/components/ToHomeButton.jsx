@@ -3,11 +3,7 @@
 import { Link } from "react-router-dom";
 
 const ToHomeButton = () => {
-	return (
-		<Link to={"/"}>
-			<button className='ui button fluid'>Home</button>
-		</Link>
-	);
+	return <Link to={"/"}>Home</Link>;
 };
 
 export default ToHomeButton;

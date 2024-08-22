@@ -18,6 +18,7 @@ export const SearchBar = () => {
 
 		console.log(data.data);
 		if (error) setFetchError(error);
+
 		navigate(`/results`);
 	};
 

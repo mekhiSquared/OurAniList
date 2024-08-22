@@ -3,11 +3,7 @@
 import { Link } from "react-router-dom";
 
 const ToTrendingButton = () => {
-	return (
-		<Link to={"/trending"}>
-			<button className='ui button fluid'>Trending</button>
-		</Link>
-	);
+	return <Link to={"/trending"}>Trending</Link>;
 };
 
 export default ToTrendingButton;
