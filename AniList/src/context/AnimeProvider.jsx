@@ -2,7 +2,7 @@
 
 import AnimeContext from "./AnimeContext";
 import { useEffect, useState } from "react";
-import handleFetch from "../utils";
+import { handleFetch } from "../utils";
 
 const AnimeProvider = ({ children }) => {
 	// these states are for the fetch data
@@ -11,15 +11,18 @@ const AnimeProvider = ({ children }) => {
 
 	// useEffect hook to fetch data once
 	useEffect(() => {
-		const doFetch = async => {
-			// fetch and set data
-			// this fetch will probably only be for the trending anime
+		const doFetch = async () => {
+			const [data, error] = await handleFetch(
+				`https://api.jikan.moe/v4/top/anime`
+			);
+			if (data) setTrendingAnimeList(data.data);
+			if (error) setFetchError(error);
 		};
 		doFetch();
 	}, []);
 
 	// values to be passed into the context. this data will be accessible throughout the whole project with useContext
-	const value = { key: "value" };
+	const value = { trendingAnimeList, fetchError, setFetchError };
 
 	return (
 		<AnimeContext.Provider value={value}>
