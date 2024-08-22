@@ -3,6 +3,7 @@
 import "./App.css";
 import { useContext } from "react";
 import AnimeContext from "./context/AnimeContext";
+import { SearchBar } from "./components/SearchBar";
 
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
@@ -12,7 +13,8 @@ import ResultsPage from "./pages/ResultsPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
-	const { fetchError } = useContext(AnimeContext);
+  const { fetchError } = useContext(AnimeContext);
+
 
 	if (fetchError) return <p>{fetchError.message}</p>;
 
