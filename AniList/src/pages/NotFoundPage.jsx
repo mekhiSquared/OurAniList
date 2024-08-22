@@ -1,9 +1,11 @@
 /** @format */
+import ToHomeButton from "../components/ToHomeButton";
 
 const NotFoundPage = () => {
 	return (
 		<>
-			<p>Not Found</p>
+			<h1>Page not Found</h1>
+			<ToHomeButton />
 		</>
 	);
 };
