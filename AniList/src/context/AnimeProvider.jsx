@@ -9,12 +9,13 @@ const AnimeProvider = ({ children }) => {
 	const [trendingAnimeList, setTrendingAnimeList] = useState([]);
 	const [queryAnimeList, setQueryAnimeList] = useState([]);
 	const [fetchError, setFetchError] = useState(null);
+	const [dependencyFlag, setDependencyFlag] = useState(true);
 
 	// useEffect hook to fetch data once
 	useEffect(() => {
 		const doFetch = async () => {
 			const [data, error] = await handleFetch(
-				`https://api.jikan.moe/v4/top/anime`
+				`https://api.jikan.moe/v4/top/anime?sfw&page=1`
 			);
 			if (data) setTrendingAnimeList(data.data);
 			if (error) setFetchError(error);
@@ -27,6 +28,8 @@ const AnimeProvider = ({ children }) => {
 		trendingAnimeList,
 		queryAnimeList,
 		setQueryAnimeList,
+		dependencyFlag,
+		setDependencyFlag,
 		fetchError,
 		setFetchError,
 	};

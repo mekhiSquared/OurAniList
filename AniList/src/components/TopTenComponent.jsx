@@ -2,14 +2,13 @@
 
 import { useContext } from "react";
 import AnimeContext from "../context/AnimeContext";
+import { CardComponent } from "./CardComponent";
 
-export const TopTen = anime => {
+export const TopTenComponent = anime => {
 	const { trendingAnimeList } = useContext(AnimeContext);
 
 	return (
 		<>
-			<NavBar />
-			<p>Results</p>
 			<section id='resultsContainer'>
 				<ul id='animeResults'>
 					{trendingAnimeList?.slice(0, 9).map(anime => (
