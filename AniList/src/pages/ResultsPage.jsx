@@ -1,6 +1,7 @@
 import { CardComponent } from "../components/CardComponent";
 
 /** @format */
+import NavBar from "../components/NavBar";
 
 const anime = [
   {
@@ -4147,8 +4148,9 @@ const anime = [
 ];
 
 const ResultsPage = () => {
-  return (
-    <>
+	return (
+		<>
+			<NavBar />
       <p>Results</p>
       <section id="resultsContainer">
         <ul id="animeResults">
