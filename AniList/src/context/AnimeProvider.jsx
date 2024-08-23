@@ -7,6 +7,7 @@ import { handleFetch } from "../utils";
 const AnimeProvider = ({ children }) => {
 	// these states are for the fetch data
 	const [trendingAnimeList, setTrendingAnimeList] = useState([]);
+	const [queryAnimeList, setQueryAnimeList] = useState([]);
 	const [fetchError, setFetchError] = useState(null);
 
 	// useEffect hook to fetch data once
@@ -22,7 +23,13 @@ const AnimeProvider = ({ children }) => {
 	}, []);
 
 	// values to be passed into the context. this data will be accessible throughout the whole project with useContext
-	const value = { trendingAnimeList, fetchError, setFetchError };
+	const value = {
+		trendingAnimeList,
+		queryAnimeList,
+		setQueryAnimeList,
+		fetchError,
+		setFetchError,
+	};
 
 	return (
 		<AnimeContext.Provider value={value}>
