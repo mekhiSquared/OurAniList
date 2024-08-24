@@ -3,7 +3,6 @@
 import "./App.css";
 import { useContext } from "react";
 import AnimeContext from "./context/AnimeContext";
-import { SearchBar } from "./components/SearchBar";
 
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
@@ -13,19 +12,38 @@ import ResultsPage from "./pages/ResultsPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
-  const { fetchError } = useContext(AnimeContext);
+	const { fetchError } = useContext(AnimeContext);
 
-  if (fetchError) return <p>{fetchError.message}</p>;
+	if (fetchError) return <h2>{fetchError.message}</h2>;
 
-  return (
-    <Routes>
-      <Route path="/" element={<HomePage />}></Route>
-      <Route path="/trending" element={<TrendingPage />}></Route>
-      <Route path="/anime/:id" element={<AnimeSpecsPage />}></Route>
-      <Route path="/results" element={<ResultsPage />}></Route>
-      <Route path="*" element={<NotFoundPage />}></Route>
-    </Routes>
-  );
+	return (
+		<Routes>
+			<Route
+				path='/'
+				element={<HomePage />}></Route>
+			<Route
+				path='/trending'
+				element={<TrendingPage />}></Route>
+			<Route
+				path='/trending/:pageNum'
+				element={<TrendingPage />}></Route>
+			<Route
+				path='/anime/:id'
+				element={<AnimeSpecsPage />}></Route>
+			<Route
+				path='/results'
+				element={<ResultsPage />}></Route>
+			<Route
+				path='/results/:query'
+				element={<ResultsPage />}></Route>
+			<Route
+				path='/results/:query/:pageNum'
+				element={<ResultsPage />}></Route>
+			<Route
+				path='*'
+				element={<NotFoundPage />}></Route>
+		</Routes>
+	);
 }
 
 export default App;

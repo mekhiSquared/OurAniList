@@ -1,17 +1,23 @@
-export const TopTen = (anime) => {
-  return (
-    <>
-      <NavBar />
-      <p>Results</p>
-      <section id="resultsContainer">
-        <ul id="animeResults">
-          {anime?.slice(0, 9).map((anime) => (
-            <li key={anime.mal_id}>
-              <CardComponent anime={anime} />
-            </li>
-          ))}
-        </ul>
-      </section>
-    </>
-  );
+/** @format */
+
+import { useContext } from "react";
+import AnimeContext from "../context/AnimeContext";
+import { CardComponent } from "./CardComponent";
+
+export const TopTenComponent = anime => {
+	const { trendingAnimeList } = useContext(AnimeContext);
+
+	return (
+		<>
+			<section id='resultsContainer'>
+				<ul id='animeResults'>
+					{trendingAnimeList?.slice(0, 9).map(anime => (
+						<li key={anime.mal_id}>
+							<CardComponent anime={anime} />
+						</li>
+					))}
+				</ul>
+			</section>
+		</>
+	);
 };

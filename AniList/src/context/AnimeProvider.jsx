@@ -7,22 +7,39 @@ import { handleFetch } from "../utils";
 const AnimeProvider = ({ children }) => {
 	// these states are for the fetch data
 	const [trendingAnimeList, setTrendingAnimeList] = useState([]);
+	const [lastPageNum, setLastPageNum] = useState(1024);
+	const [queryAnimeList, setQueryAnimeList] = useState([]);
 	const [fetchError, setFetchError] = useState(null);
+	const [dependencyFlag, setDependencyFlag] = useState(true);
 
 	// useEffect hook to fetch data once
 	useEffect(() => {
 		const doFetch = async () => {
 			const [data, error] = await handleFetch(
-				`https://api.jikan.moe/v4/top/anime`
+				`https://api.jikan.moe/v4/top/anime?sfw`
 			);
-			if (data) setTrendingAnimeList(data.data);
+
+			if (data) {
+				setTrendingAnimeList(data.data);
+				if (lastPageNum !== data.pagination["last_visible_page"])
+					setLastPageNum(data.pagination["last_visible_page"]);
+			}
 			if (error) setFetchError(error);
 		};
 		doFetch();
 	}, []);
 
 	// values to be passed into the context. this data will be accessible throughout the whole project with useContext
-	const value = { trendingAnimeList, fetchError, setFetchError };
+	const value = {
+		trendingAnimeList,
+		lastPageNum,
+		queryAnimeList,
+		setQueryAnimeList,
+		dependencyFlag,
+		setDependencyFlag,
+		fetchError,
+		setFetchError,
+	};
 
 	return (
 		<AnimeContext.Provider value={value}>
