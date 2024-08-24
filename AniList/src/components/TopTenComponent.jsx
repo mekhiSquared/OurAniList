@@ -9,8 +9,8 @@ export const TopTenComponent = anime => {
 
 	return (
 		<>
-			<section id='resultsContainer'>
-				<ul id='animeResults'>
+			<section id='topTenContainer'>
+				<ul id='topTen'>
 					{trendingAnimeList?.slice(0, 9).map(anime => (
 						<li key={anime.mal_id}>
 							<CardComponent anime={anime} />
