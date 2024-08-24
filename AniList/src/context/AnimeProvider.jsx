@@ -16,12 +16,13 @@ const AnimeProvider = ({ children }) => {
 	useEffect(() => {
 		const doFetch = async () => {
 			const [data, error] = await handleFetch(
-				`https://api.jikan.moe/v4/top/anime?sfw&page=1`
+				`https://api.jikan.moe/v4/top/anime?sfw`
 			);
 
 			if (data) {
 				setTrendingAnimeList(data.data);
-				setLastPageNum(data.pagination["last_visible_page"]);
+				if (lastPageNum !== data.pagination["last_visible_page"])
+					setLastPageNum(data.pagination["last_visible_page"]);
 			}
 			if (error) setFetchError(error);
 		};

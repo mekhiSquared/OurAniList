@@ -1,12 +1,14 @@
 /** @format */
-import { useParams } from "react-router-dom";
-import NavBar from "../components/NavBar";
-import { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { CardComponent } from "../components/CardComponent";
 import { handleFetch } from "../utils";
+import NavBar from "../components/NavBar";
+import { CardComponent } from "../components/CardComponent";
 import { TopTenComponent } from "../components/TopTenComponent";
+
+import { useContext, useEffect, useState } from "react";
 import AnimeContext from "../context/AnimeContext";
+
+import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const AnimeSpecsPage = () => {
 	const [anime, setAnime] = useState({});

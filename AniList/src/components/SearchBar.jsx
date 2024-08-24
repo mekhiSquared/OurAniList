@@ -13,15 +13,15 @@ export const SearchBar = () => {
 	const submit = async e => {
 		e.preventDefault();
 		const [data, error] = await handleFetch(
-			`https://api.jikan.moe/v4/anime?sfw&q=${search}&page=1`
+			`https://api.jikan.moe/v4/anime?sfw&q=${search}`
 		);
 
 		if (data) setQueryAnimeList(data.data);
 		if (error) setFetchError(error);
 
-		let slashFlag = search.includes("/");
+		const query = search.includes("/") ? search.replaceAll("/", "%2F") : search;
 
-		navigate(`/results/${slashFlag ? search.replaceAll("/", "%2F") : search}`);
+		navigate(`/results/${query}`);
 	};
 
 	return (

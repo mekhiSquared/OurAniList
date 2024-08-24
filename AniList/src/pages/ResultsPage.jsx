@@ -1,40 +1,28 @@
 /** @format */
 
-import { CardComponent } from "../components/CardComponent";
+import { handleFetch } from "../utils";
 import NavBar from "../components/NavBar";
+import { CardComponent } from "../components/CardComponent";
+import { TopTenComponent } from "../components/TopTenComponent";
+
 import { useContext, useEffect } from "react";
 import AnimeContext from "../context/AnimeContext";
-import { TopTenComponent } from "../components/TopTenComponent";
+
 import { useParams } from "react-router-dom";
-import { handleFetch } from "../utils";
 
 const ResultsPage = () => {
 	const { queryAnimeList, setQueryAnimeList, setFetchError } =
 		useContext(AnimeContext);
 	const { query, pageNum } = useParams();
 
-	// console.log({ query, pageNum });
-
 	useEffect(() => {
-		if (!queryAnimeList.length && query) {
+		if (!queryAnimeList.length) {
 			const url = pageNum
 				? `https://api.jikan.moe/v4/anime?sfw&q=${query}&page=${pageNum}`
-				: `https://api.jikan.moe/v4/anime?sfw&q=${query}&page=1`;
+				: `https://api.jikan.moe/v4/anime?sfw&q=${query ?? ""}`;
 
 			const doFetch = async () => {
 				const [data, error] = await handleFetch(url);
-
-				if (data) setQueryAnimeList(data.data);
-				if (error) setFetchError(error);
-			};
-			doFetch();
-		}
-
-		if (!queryAnimeList.length && !query) {
-			const doFetch = async () => {
-				const [data, error] = await handleFetch(
-					`https://api.jikan.moe/v4/anime?sfw&q=`
-				);
 
 				if (data) setQueryAnimeList(data.data);
 				if (error) setFetchError(error);

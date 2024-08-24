@@ -11,12 +11,10 @@ const TrendingPage = () => {
 	const { pageNum } = useParams();
 	const [currPageList, setCurrPageList] = useState(null);
 
-	// console.log({ pageNum, lastPageNum }, pageNum > 1 && pageNum <= lastPageNum);
-
 	useEffect(() => {
 		if (pageNum > 1 && pageNum <= lastPageNum) {
 			const doFetch = async () => {
-				let [page, error] = await handleFetch(
+				const [page, error] = await handleFetch(
 					`https://api.jikan.moe/v4/top/anime?sfw&page=${pageNum}`
 				);
 
