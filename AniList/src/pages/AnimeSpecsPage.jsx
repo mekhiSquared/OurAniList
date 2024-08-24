@@ -98,8 +98,8 @@ const AnimeSpecsPage = () => {
 			</section>
 			<section id='external-container'>
 				<ul id='external'>
-					{anime.external?.map(anime => (
-						<li key={anime.mal_id}>
+					{anime.external?.map((anime, i) => (
+						<li key={i}>
 							<p>{anime.name}</p>
 							<a src={anime.url}>{anime.url}</a>
 						</li>
@@ -108,8 +108,8 @@ const AnimeSpecsPage = () => {
 			</section>
 			<section id='streaming-container'>
 				<ul id='streaming'>
-					{anime.streaming?.map(anime => (
-						<li key={anime.mal_id}>
+					{anime.streaming?.map((anime, i) => (
+						<li key={i}>
 							<p>{anime.name}</p>
 							<a src={anime.url}>{anime.url}</a>
 						</li>
