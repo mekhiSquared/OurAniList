@@ -13,7 +13,7 @@ export const SearchBar = () => {
 	const submit = async e => {
 		e.preventDefault();
 		const [data, error] = await handleFetch(
-			` https://api.jikan.moe/v4/anime?q=${search}&sfw`
+			` https://api.jikan.moe/v4/anime?sfw&q=${search}&page1`
 		);
 
 		if (data) setQueryAnimeList(data.data);

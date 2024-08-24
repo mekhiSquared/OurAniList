@@ -7,6 +7,7 @@ import { handleFetch } from "../utils";
 const AnimeProvider = ({ children }) => {
 	// these states are for the fetch data
 	const [trendingAnimeList, setTrendingAnimeList] = useState([]);
+	const [lastPageNum, setLastPageNum] = useState(1024);
 	const [queryAnimeList, setQueryAnimeList] = useState([]);
 	const [fetchError, setFetchError] = useState(null);
 	const [dependencyFlag, setDependencyFlag] = useState(true);
@@ -17,7 +18,11 @@ const AnimeProvider = ({ children }) => {
 			const [data, error] = await handleFetch(
 				`https://api.jikan.moe/v4/top/anime?sfw&page=1`
 			);
-			if (data) setTrendingAnimeList(data.data);
+
+			if (data) {
+				setTrendingAnimeList(data.data);
+				setLastPageNum(data.pagination["last_visible_page"]);
+			}
 			if (error) setFetchError(error);
 		};
 		doFetch();
@@ -26,6 +31,7 @@ const AnimeProvider = ({ children }) => {
 	// values to be passed into the context. this data will be accessible throughout the whole project with useContext
 	const value = {
 		trendingAnimeList,
+		lastPageNum,
 		queryAnimeList,
 		setQueryAnimeList,
 		dependencyFlag,
