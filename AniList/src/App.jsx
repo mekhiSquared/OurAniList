@@ -34,6 +34,12 @@ function App() {
 				path='/results'
 				element={<ResultsPage />}></Route>
 			<Route
+				path='/results/:query'
+				element={<ResultsPage />}></Route>
+			<Route
+				path='/results/:query/:pageNum'
+				element={<ResultsPage />}></Route>
+			<Route
 				path='*'
 				element={<NotFoundPage />}></Route>
 		</Routes>
