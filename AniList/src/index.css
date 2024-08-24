@@ -84,11 +84,29 @@ button:focus-visible {
 #fig:hover {
   background-color: #e0e0e0; /* Light grey background on hover */
 }
+#topTenContainer {
+  width: 15%; /* Shrink the width of the container */
+  max-width: 1250px; /* Maximum width of the container */
+  position: fixed; /* Fix the container's position relative to the viewport */
+  bottom: 1; /* Position at the bottom */
+  right: 0; /* Position at the left */
+  margin-right: 30px; /* Remove any default margin */
+  padding: 16px; /* Optional: Add some padding inside the container */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Optional: Background with transparency */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better visibility */
+  max-height: 1250px; /* Adjust to leave space for the navbar */
+  overflow-y: auto; /* Enable vertical scrolling if content exceeds max height */
+}
 #resultsContainer {
   width: 90%; /* Shrink the width of the container */
-  max-width: 2000px; /* Maximum width of the container */
+  max-width: 1250px; /* Maximum width of the container */
   position: fixed; /* Fix the container's position relative to the viewport */
-  bottom: 0; /* Position at the bottom */
+  bottom: 1; /* Position at the bottom */
   left: 0; /* Position at the left */
   margin: 0; /* Remove any default margin */
   padding: 16px; /* Optional: Add some padding inside the container */
@@ -99,7 +117,7 @@ button:focus-visible {
     0.8
   ); /* Optional: Background with transparency */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better visibility */
-  max-height: calc(100vh - 800px); /* Adjust to leave space for the navbar */
+  max-height: 1250px; /* Adjust to leave space for the navbar */
   overflow-y: auto; /* Enable vertical scrolling if content exceeds max height */
 }
 #cardImg {
