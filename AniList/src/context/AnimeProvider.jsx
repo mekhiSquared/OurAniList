@@ -11,6 +11,7 @@ const AnimeProvider = ({ children }) => {
 	const [queryAnimeList, setQueryAnimeList] = useState([]);
 	const [fetchError, setFetchError] = useState(null);
 	const [dependencyFlag, setDependencyFlag] = useState(true);
+	const [active, setActive] = useState("home");
 
 	// useEffect hook to fetch data once
 	useEffect(() => {
@@ -35,10 +36,12 @@ const AnimeProvider = ({ children }) => {
 		lastPageNum,
 		queryAnimeList,
 		setQueryAnimeList,
-		dependencyFlag,
-		setDependencyFlag,
 		fetchError,
 		setFetchError,
+		dependencyFlag,
+		setDependencyFlag,
+		active,
+		setActive,
 	};
 
 	return (
