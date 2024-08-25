@@ -30,14 +30,21 @@ const AnimeSpecsPage = () => {
   }, [dependencyFlag]);
 
   const backgroundImage = {
-    backgroundImage: "url(anime.trailer?.images.maximum_image_url)",
+    img: anime.trailer?.images.maximum_image_url,
   };
 
   return (
     <>
       <NavBar />
       <p>Anime Specs {`id: ${anime.mal_id}`}</p>
-      <div style={backgroundImage}></div>
+      <div
+        style={{
+          backgroundImage: ` url(${backgroundImage.img})`,
+          backgroundRepeat: "no-repeat",
+          height: "80vh",
+          backgroundPosition: "center",
+        }}
+      ></div>
       {/* <img
         src={anime.trailer?.images.maximum_image_url}
         alt="trailer pic"
