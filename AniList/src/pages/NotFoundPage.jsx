@@ -2,7 +2,16 @@
 import NavBar from "../components/NavBar";
 import ToHomeButton from "../components/ToHomeButton";
 
+import { useContext, useEffect } from "react";
+import AnimeContext from "../context/AnimeContext";
+
 const NotFoundPage = () => {
+	const { setActive } = useContext(AnimeContext);
+
+	useEffect(() => {
+		setActive(null);
+	});
+
 	return (
 		<>
 			<NavBar />
