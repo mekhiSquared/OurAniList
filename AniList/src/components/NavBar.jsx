@@ -6,6 +6,7 @@ import ToTrendingButton from "./ToTrendingButton";
 import logo from "../assets/logo.png";
 import { useContext } from "react";
 import AnimeContext from "../context/AnimeContext";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
 	const { active } = useContext(AnimeContext);
@@ -22,19 +23,16 @@ const NavBar = () => {
 				}}>
 				<li>
 					{/* Logo Link */}
-					<a
-						href='/'
-						style={{ display: "inline-block", padding: "1.75% 1.75%" }}>
+					<Link to='/'>
 						<img
 							src={logo}
 							alt='Logo'
 							style={{ height: "90px" }}
 						/>
-					</a>
+					</Link>
 				</li>
 				<li
 					style={{
-						display: "inline-flex",
 						backgroundColor:
 							active === "home" ? "rgba(128, 128, 128, 0.5)" : "transparent",
 						padding: "1.75% 1.75%",
@@ -43,7 +41,6 @@ const NavBar = () => {
 				</li>
 				<li
 					style={{
-						display: "inline-flex",
 						backgroundColor:
 							active === "trending"
 								? "rgba(128, 128, 128, 0.5)"
@@ -54,7 +51,6 @@ const NavBar = () => {
 				</li>
 				<li
 					style={{
-						display: "inline-flex",
 						marginLeft: "auto",
 					}}>
 					<SearchBar />
