@@ -87,6 +87,7 @@ To ensure that we can complete all core features of the application in 1 week, w
 
       
 ## Wireframes of each page in your application
+color palette - [https://coolors.co/palette/386641-6a994e-a7c957]
 
 Below, you can find wireframes for our project. Each wireframe shows a different page of our application as well as the key components of the application. Details such as specific text values or images are intentionally not included:
 
