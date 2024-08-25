@@ -26,21 +26,25 @@ const TrendingPage = () => {
 		}
 
 		setActive("trending");
-	}, [lastPageNum]);
+		// }, [lastPageNum]);
+	}, []);
 
 	return (
 		<>
 			<NavBar />
-			<p>Trending</p>
-			<section id='resultsContainer'>
-				<ul id='animeResults'>
-					{(currPageList ?? trendingAnimeList)?.map(anime => (
-						<li key={anime.mal_id}>
-							<CardComponent anime={anime} />
-						</li>
-					))}
-				</ul>
-			</section>
+			<h1>TRENDING</h1>
+			<ul
+				style={{
+					display: "grid",
+					gridTemplateColumns: "1fr 1fr 1fr 1fr",
+					gap: "8px",
+				}}>
+				{(currPageList ?? trendingAnimeList)?.map(anime => (
+					<li key={anime.mal_id}>
+						<CardComponent anime={anime} />
+					</li>
+				))}
+			</ul>
 		</>
 	);
 };

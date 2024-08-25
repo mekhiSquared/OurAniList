@@ -8,6 +8,7 @@ import { useContext } from "react";
 import AnimeContext from "../context/AnimeContext";
 
 const NavBar = () => {
+
   const { active } = useContext(AnimeContext);
   return (
     <nav style={{ position: "fixed", top: "0", width: "100%" }}>
@@ -63,5 +64,6 @@ const NavBar = () => {
       </ul>
     </nav>
   );
+
 };
 export default NavBar;
