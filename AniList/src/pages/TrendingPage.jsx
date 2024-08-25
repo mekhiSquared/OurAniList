@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 import { handleFetch } from "../utils";
 
 const TrendingPage = () => {
-	const { trendingAnimeList, lastPageNum, setFetchError } =
+	const { trendingAnimeList, lastPageNum, setFetchError, setActive } =
 		useContext(AnimeContext);
 	const { pageNum } = useParams();
 	const [currPageList, setCurrPageList] = useState(null);
@@ -24,6 +24,8 @@ const TrendingPage = () => {
 			};
 			doFetch();
 		}
+
+		setActive("trending");
 	}, [lastPageNum]);
 
 	return (
