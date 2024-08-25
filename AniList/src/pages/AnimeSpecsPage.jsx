@@ -29,11 +29,21 @@ const AnimeSpecsPage = () => {
     doFetch();
   }, [dependencyFlag]);
 
+  const backgroundImage = {
+    backgroundImage: "url(anime.trailer?.images.maximum_image_url)",
+  };
+
   return (
     <>
       <NavBar />
       <p>Anime Specs {`id: ${anime.mal_id}`}</p>
-      <img src={anime.trailer?.images.maximum_image_url} alt="trailer pic" />
+      <div style={backgroundImage}></div>
+      {/* <img
+        src={anime.trailer?.images.maximum_image_url}
+        alt="trailer pic"
+        id="specsBack"
+      /> */}
+
       <h1>{anime.title}</h1>
       <img src={anime.images?.jpg.large_image_url} alt="anime  pic" srcSet="" />
       <p>{anime.type}</p>
