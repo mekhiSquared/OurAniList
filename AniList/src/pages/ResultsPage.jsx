@@ -33,40 +33,56 @@ const ResultsPage = () => {
 		setActive("results");
 	}, []);
 
-	if (!queryAnimeList.length)
-		return (
-			<>
-				<NavBar />
-				<p>Results</p>
-				<h2>There's no anime that fits your search...</h2>
-				<h2>Please try another search term</h2>
-			</>
-		);
-
 	return (
 		<>
 			<NavBar />
-			{query ? (
+			<h1>RESULTS</h1>
+			{query && queryAnimeList.length ? (
+				// if the search returns something & there is a query
 				<>
-					<p>Results</p>
-					<p>You searched: "{query}"</p>
+					<h2>You searched for "{query}"</h2>
 				</>
 			) : (
-				<>
-					<p>No search term... </p>
-					<p>Displaying default anime list</p>
-				</>
+				// otherwise
+				<></>
 			)}
-			<section id='resultsContainer'>
-				<ul id='animeResults'>
-					{queryAnimeList?.map(anime => (
-						<li key={anime.mal_id}>
-							<CardComponent anime={anime} />
-						</li>
-					))}
-				</ul>
+			<section
+				style={{
+					display: "grid",
+					gridTemplateColumns: "4fr 1fr",
+					padding: "15px",
+					gap: "1rem",
+				}}>
+				{!queryAnimeList.length ? (
+					// if the search doesnt return anything
+					<section
+						style={{
+							display: "flex",
+							flexFlow: "column",
+							alignItems: "center",
+							gap: "1rem",
+							padding: "7px 15px",
+						}}>
+						<h2>No results match "{query}"...</h2>
+						<h2>Please try again!</h2>
+					</section>
+				) : (
+					// if the search returns something, display it
+					<ul
+						style={{
+							display: "grid",
+							gridTemplateColumns: "1fr 1fr 1fr 1fr",
+							gap: "8px",
+						}}>
+						{queryAnimeList?.map(anime => (
+							<li key={anime.mal_id}>
+								<CardComponent anime={anime} />
+							</li>
+						))}
+					</ul>
+				)}
+				<TopTenComponent />
 			</section>
-			<TopTenComponent />
 		</>
 	);
 };

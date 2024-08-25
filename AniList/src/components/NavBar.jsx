@@ -10,7 +10,7 @@ import AnimeContext from "../context/AnimeContext";
 const NavBar = () => {
 	const { active } = useContext(AnimeContext);
 	return (
-		<nav style={{ position: "fixed", top: "0", width: "100%" }}>
+		<nav style={{ position: "sticky", top: "0", width: "100%" }}>
 			<ul
 				style={{
 					display: "flex",
@@ -24,7 +24,7 @@ const NavBar = () => {
 					style={{
 						display: "inline-flex",
 						backgroundColor: active === "home" ? "#A7C957" : "rgb(0,0,0,0)",
-						padding: "1.75% 1.75%",
+						padding: "15px",
 					}}>
 					<ToHomeButton />
 				</li>
@@ -33,7 +33,7 @@ const NavBar = () => {
 					style={{
 						display: "inline-flex",
 						backgroundColor: active === "trending" ? "#A7C957" : "rgb(0,0,0,0)",
-						padding: "1.75% 1.75%",
+						padding: "15px",
 					}}>
 					<ToTrendingButton />
 				</li>
