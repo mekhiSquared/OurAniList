@@ -11,28 +11,28 @@ import { handleFetch } from "../utils";
 import { useParams, useNavigate, Link } from "react-router-dom";
 
 const AllAnimePage = () => {
-	const { pageNum } = useParams();
-	const { setFetchError, setActive } = useContext(AnimeContext);
-	const [lastPageNum, setLastPageNum] = useState(0);
-	const [currPageList, setCurrPageList] = useState([]);
-	const navigate = useNavigate();
+  const { pageNum } = useParams();
+  const { setFetchError, setActive } = useContext(AnimeContext);
+  const [lastPageNum, setLastPageNum] = useState(0);
+  const [currPageList, setCurrPageList] = useState([]);
+  const navigate = useNavigate();
 
-	useEffect(() => {
-		if (pageNum > 0 && pageNum <= lastPageNum) {
-			const doFetch = async () => {
-				const [page, error] = await handleFetch(
-					`https://api.jikan.moe/v4/anime?sfw&page=${pageNum}`
-				);
+  useEffect(() => {
+    if (pageNum > 0 && pageNum <= lastPageNum) {
+      const doFetch = async () => {
+        const [page, error] = await handleFetch(
+          `https://api.jikan.moe/v4/anime?sfw&page=${pageNum}`
+        );
 
-				if (page) {
-					page.data.length ? setCurrPageList(page.data) : navigate("/*");
-					if (lastPageNum < page.pagination["last_visible_page"])
-						setLastPageNum(page.pagination["last_visible_page"]);
-				}
-				if (error) setFetchError(error);
-			};
-			doFetch();
-		} else setLastPageNum(Number(pageNum));
+        if (page) {
+          page.data.length ? setCurrPageList(page.data) : navigate("/*");
+          if (lastPageNum < page.pagination["last_visible_page"])
+            setLastPageNum(page.pagination["last_visible_page"]);
+        }
+        if (error) setFetchError(error);
+      };
+      doFetch();
+    } else setLastPageNum(Number(pageNum));
 
 		// param validation
 		if (pageNum < 1 || isNaN(pageNum)) navigate("/all/1"); // if its not a number or too small
@@ -41,8 +41,9 @@ const AllAnimePage = () => {
 		if (lastPageNum > 1 && pageNum > lastPageNum)
 			navigate(`/all/${lastPageNum}`); // if its too large
 
-		setActive("all");
-	}, [pageNum, lastPageNum]);
+    setActive("all");
+  }, [pageNum, lastPageNum]);
+
 
 	return (
 		<>
