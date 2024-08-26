@@ -48,6 +48,7 @@ export const SearchBar = () => {
 				id='searchBar'
 				value={search}
 				onChange={e => setSearch(e.target.value)}
+				required
 				style={{
 					flex: "1",
 					padding: "0.5rem",
