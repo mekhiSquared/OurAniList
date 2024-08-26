@@ -7,7 +7,7 @@ import { handleFetch } from "../utils";
 const AnimeProvider = ({ children }) => {
 	// these states are for the fetch data
 	const [trendingAnimeList, setTrendingAnimeList] = useState([]);
-	const [lastPageNum, setLastPageNum] = useState(1024);
+	const [lastPageNum, setLastPageNum] = useState(1);
 	const [queryAnimeList, setQueryAnimeList] = useState([]);
 	const [fetchError, setFetchError] = useState(null);
 	const [dependencyFlag, setDependencyFlag] = useState(true);
@@ -17,7 +17,7 @@ const AnimeProvider = ({ children }) => {
 	useEffect(() => {
 		const doFetch = async () => {
 			const [data, error] = await handleFetch(
-				`https://api.jikan.moe/v4/top/anime?sfw`
+				`https://api.jikan.moe/v4/top/anime?sfw&page1`
 			);
 
 			if (data) {
