@@ -57,7 +57,7 @@ const AnimeSpecsPage = () => {
   return (
     <>
       <NavBar />
-      <p>Anime Specs {`id: ${anime.mal_id}`}</p>
+
       <div
         style={{
           backgroundImage: `
