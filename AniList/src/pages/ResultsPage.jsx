@@ -1,12 +1,12 @@
 /** @format */
 
-import { handleFetch } from "../utils";
 import NavBar from "../components/NavBar";
 import { CardComponent } from "../components/CardComponent";
 import { TopTenComponent } from "../components/TopTenComponent";
 
 import { useContext, useEffect } from "react";
 import AnimeContext from "../context/AnimeContext";
+import { handleFetch } from "../utils";
 
 import { useParams } from "react-router-dom";
 

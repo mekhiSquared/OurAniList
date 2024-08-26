@@ -1,11 +1,12 @@
 /** @format */
 import NavBar from "../components/NavBar";
 import { CardComponent } from "../components/CardComponent";
+
 import { useContext, useEffect, useState } from "react";
 import AnimeContext from "../context/AnimeContext";
-import { useNavigate, useParams } from "react-router-dom";
 import { handleFetch } from "../utils";
-import { Link } from "react-router-dom";
+
+import { useNavigate, useParams, Link } from "react-router-dom";
 
 const TrendingPage = () => {
 	const { trendingAnimeList, lastPageNum, setFetchError, setActive } =
@@ -28,9 +29,12 @@ const TrendingPage = () => {
 			doFetch();
 		}
 
-		if (pageNum < 1 || isNaN(pageNum)) navigate("/trending/1");
+		// param validation
+		if (pageNum < 1 || isNaN(pageNum)) navigate("/trending/1"); // if its not a number or too small
+		if (Number(pageNum) % 1 !== 0)
+			navigate(`/trending/${Math.round(Number(pageNum))}`); // if its not an integer
 		if (lastPageNum > 1 && pageNum > lastPageNum)
-			navigate(`/trending/${lastPageNum}`);
+			navigate(`/trending/${lastPageNum}`); // if its too large
 
 		setActive("trending");
 	}, [pageNum, lastPageNum]);
@@ -57,7 +61,7 @@ const TrendingPage = () => {
 				<h2>
 					Page {pageNum ?? 1} of {lastPageNum}
 				</h2>
-				{!pageNum || pageNum < lastPageNum ? (
+				{pageNum < lastPageNum ? (
 					// Next button makes the path head to the next page
 					<Link to={`/trending/${Number(pageNum) + 1}`}>
 						<button>Next {">>"}</button>
