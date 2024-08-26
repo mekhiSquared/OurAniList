@@ -11,35 +11,45 @@ import { handleFetch } from "../utils";
 import { useParams, useNavigate, Link } from "react-router-dom";
 
 const ResultsPage = () => {
-	const { queryAnimeList, setQueryAnimeList, setFetchError, setActive } =
-		useContext(AnimeContext);
 	const { query, pageNum } = useParams();
-	const [lastPageNum, setLastPageNum] = useState(1);
+	const { setFetchError, setActive } = useContext(AnimeContext);
+	const [lastPageNum, setLastPageNum] = useState(0);
+	const [queryAnimeList, setQueryAnimeList] = useState([]);
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		if (!queryAnimeList.length) {
+		if (pageNum > 0 && pageNum <= lastPageNum) {
 			const url = pageNum
 				? `https://api.jikan.moe/v4/anime?sfw&q=${query}&page=${pageNum}`
 				: `https://api.jikan.moe/v4/anime?sfw&q=${query ?? ""}`;
 
 			const doFetch = async () => {
-				const [data, error] = await handleFetch(url);
+				const [page, error] = await handleFetch(url);
 
-				if (data) setQueryAnimeList(data.data);
+				if (page) {
+					page.data.length ? setQueryAnimeList(page.data) : navigate("/*");
+					setLastPageNum(page.pagination["last_visible_page"]);
+				}
 				if (error) setFetchError(error);
 			};
 			doFetch();
-		}
+		} else setLastPageNum(Number(pageNum));
+
+		// param validation
+		if (pageNum < 1 || isNaN(pageNum)) navigate(`/results/${query}/1`); // if its not a number or too small
+		if (!isNaN(pageNum) && Number(pageNum) % 1 !== 0)
+			navigate(`/results/${query}/${Math.round(Number(pageNum))}`); // if its not an integer
+		if (lastPageNum > 1 && pageNum > lastPageNum)
+			navigate(`/results/${query}/${lastPageNum}`); // if its too large
 
 		setActive("results");
-	}, []);
+	}, [query, pageNum, lastPageNum]);
 
 	return (
 		<>
 			<NavBar />
 			<h1>RESULTS</h1>
-			{query && queryAnimeList.length ? (
+			{query && queryAnimeList?.length ? (
 				// if the search returns something & there is a query
 				<>
 					<h2>You searched for "{query}"</h2>
@@ -48,6 +58,34 @@ const ResultsPage = () => {
 				// otherwise
 				<></>
 			)}
+			<ul
+				style={{
+					display: "flex",
+					justifyContent: "space-around",
+					margin: "2rem",
+				}}>
+				{pageNum == 1 ? (
+					//disables the link when its on the first page
+					<button disabled>{"<<"} Prev</button>
+				) : (
+					// Prev button makes the path head to the prev page
+					<Link to={`/results/${query}/${Number(pageNum) - 1}`}>
+						<button>{"<<"} Prev</button>
+					</Link>
+				)}
+				<h2>
+					Page {pageNum ?? 1} of {lastPageNum}
+				</h2>
+				{pageNum < lastPageNum ? (
+					// Next button makes the path head to the next page
+					<Link to={`/results/${query}/${Number(pageNum) + 1}`}>
+						<button>Next {">>"}</button>
+					</Link>
+				) : (
+					//disables the link when its on the last page
+					<button disabled>Next {">>"}</button>
+				)}
+			</ul>
 			<section
 				style={{
 					display: "grid",
@@ -55,7 +93,7 @@ const ResultsPage = () => {
 					padding: "15px",
 					gap: "1rem",
 				}}>
-				{!queryAnimeList.length ? (
+				{!queryAnimeList?.length ? (
 					// if the search doesnt return anything
 					<section
 						style={{
