@@ -1,6 +1,5 @@
 /** @format */
 
-import { CardComponent } from "./CardComponent";
 import { TopTenCard } from "./toptenCard";
 import { useContext } from "react";
 import AnimeContext from "../context/AnimeContext";
@@ -19,12 +18,10 @@ export const TopTenComponent = (anime) => {
         background: "linear-gradient(to bottom, #386641, #6A994E, #A7C957)",
         padding: "5px 10px",
         listStyleType: "none", // Remove default list styling
-        position: "relative", // For absolute positioning of ranking numbers
       }}
     >
       <li
         style={{
-          position: "relative",
           padding: "10px",
           backgroundColor: "black",
           borderRadius: "15px",
@@ -41,7 +38,6 @@ export const TopTenComponent = (anime) => {
             color: "white",
             textAlign: "center",
             margin: "0",
-
             fontSize: "1rem", // Make the number larger
             zIndex: 1, // Ensure it's on top
           }}
