@@ -31,7 +31,7 @@ const TrendingPage = () => {
 
 		// param validation
 		if (pageNum < 1 || isNaN(pageNum)) navigate("/trending/1"); // if its not a number or too small
-		if (Number(pageNum) % 1 !== 0)
+		if (!isNaN(pageNum) && Number(pageNum) % 1 !== 0)
 			navigate(`/trending/${Math.round(Number(pageNum))}`); // if its not an integer
 		if (lastPageNum > 1 && pageNum > lastPageNum)
 			navigate(`/trending/${lastPageNum}`); // if its too large

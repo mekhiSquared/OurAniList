@@ -21,24 +21,41 @@ function App() {
 
 	return (
 		<Routes>
+			{/* Home */}
 			<Route
 				path='/'
 				element={<HomePage />}></Route>
+
+			{/* ----------------------------------------------------------------------------------------- */}
+			{/* Trending */}
+
 			<Route
 				path='/trending'
 				element={<TrendingPage />}></Route>
 			<Route
 				path='/trending/:pageNum'
 				element={<TrendingPage />}></Route>
+
+			{/* ----------------------------------------------------------------------------------------- */}
+			{/* All */}
+
 			<Route
 				path='/all'
 				element={<AllAnimePage />}></Route>
 			<Route
 				path='/all/:pageNum'
 				element={<AllAnimePage />}></Route>
+
+			{/* ----------------------------------------------------------------------------------------- */}
+			{/* Specs */}
+
 			<Route
 				path='/anime/:id'
 				element={<AnimeSpecsPage />}></Route>
+
+			{/* ----------------------------------------------------------------------------------------- */}
+			{/* Results */}
+
 			<Route
 				path='/results'
 				element={<ResultsPage />}></Route>
@@ -48,6 +65,10 @@ function App() {
 			<Route
 				path='/results/:query/:pageNum'
 				element={<ResultsPage />}></Route>
+
+			{/* ----------------------------------------------------------------------------------------- */}
+			{/* Not Found */}
+
 			<Route
 				path='*'
 				element={<NotFoundPage />}></Route>
