@@ -1,6 +1,5 @@
 /** @format */
 import NavBar from "../components/NavBar";
-import ToHomeButton from "../components/ToHomeButton";
 
 import { useContext, useEffect } from "react";
 import AnimeContext from "../context/AnimeContext";
@@ -16,7 +15,6 @@ const NotFoundPage = () => {
 		<>
 			<NavBar />
 			<h1>Page not Found</h1>
-			<ToHomeButton />
 		</>
 	);
 };

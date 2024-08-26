@@ -1,48 +1,52 @@
 /** @format */
+
 import NavBar from "../components/NavBar";
 import { CardComponent } from "../components/CardComponent";
 
-import { useContext, useEffect, useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import AnimeContext from "../context/AnimeContext";
 import { handleFetch } from "../utils";
 
-import { useNavigate, useParams, Link } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 
-const TrendingPage = () => {
-	const { trendingAnimeList, lastPageNum, setFetchError, setActive } =
-		useContext(AnimeContext);
+const AllAnimePage = () => {
 	const { pageNum } = useParams();
-	const [currPageList, setCurrPageList] = useState(null);
+	const { setFetchError, setActive } = useContext(AnimeContext);
+	const [lastPageNum, setLastPageNum] = useState(0);
+	const [currPageList, setCurrPageList] = useState([]);
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		if (pageNum == 1) setCurrPageList(null);
-		if (pageNum > 1 && pageNum <= lastPageNum) {
+		if (pageNum > 0 && pageNum <= lastPageNum) {
 			const doFetch = async () => {
 				const [page, error] = await handleFetch(
-					`https://api.jikan.moe/v4/top/anime?sfw&page=${pageNum}`
+					`https://api.jikan.moe/v4/anime?sfw&page=${pageNum}`
 				);
 
-				if (page) setCurrPageList(page.data);
+				if (page) {
+					page.data.length ? setCurrPageList(page.data) : navigate("/*");
+					if (lastPageNum < page.pagination["last_visible_page"])
+						setLastPageNum(page.pagination["last_visible_page"]);
+				}
 				if (error) setFetchError(error);
 			};
 			doFetch();
-		}
+		} else setLastPageNum(Number(pageNum));
 
 		// param validation
-		if (pageNum < 1 || isNaN(pageNum)) navigate("/trending/1"); // if its not a number or too small
+		if (pageNum < 1 || isNaN(pageNum)) navigate("/all/1"); // if its not a number or too small
 		if (Number(pageNum) % 1 !== 0)
 			navigate(`/trending/${Math.round(Number(pageNum))}`); // if its not an integer
 		if (lastPageNum > 1 && pageNum > lastPageNum)
-			navigate(`/trending/${lastPageNum}`); // if its too large
+			navigate(`/all/${lastPageNum}`); // if its too large
 
-		setActive("trending");
+		setActive("all");
 	}, [pageNum, lastPageNum]);
 
 	return (
 		<>
 			<NavBar />
-			<h1>TRENDING</h1>
+			<h1>ANIME</h1>
 			<ul
 				style={{
 					display: "flex",
@@ -54,7 +58,7 @@ const TrendingPage = () => {
 					<button disabled>{"<<"} Prev</button>
 				) : (
 					// Prev button makes the path head to the prev page
-					<Link to={`/trending/${Number(pageNum) - 1}`}>
+					<Link to={`/all/${Number(pageNum) - 1}`}>
 						<button>{"<<"} Prev</button>
 					</Link>
 				)}
@@ -63,7 +67,7 @@ const TrendingPage = () => {
 				</h2>
 				{pageNum < lastPageNum ? (
 					// Next button makes the path head to the next page
-					<Link to={`/trending/${Number(pageNum) + 1}`}>
+					<Link to={`/all/${Number(pageNum) + 1}`}>
 						<button>Next {">>"}</button>
 					</Link>
 				) : (
@@ -77,7 +81,7 @@ const TrendingPage = () => {
 					gridTemplateColumns: "1fr 1fr 1fr 1fr",
 					gap: "8px",
 				}}>
-				{(currPageList ?? trendingAnimeList)?.map(anime => (
+				{currPageList?.map(anime => (
 					<li key={anime.mal_id}>
 						<CardComponent anime={anime} />
 					</li>
@@ -86,4 +90,5 @@ const TrendingPage = () => {
 		</>
 	);
 };
-export default TrendingPage;
+
+export default AllAnimePage;

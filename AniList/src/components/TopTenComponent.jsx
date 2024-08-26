@@ -1,8 +1,9 @@
 /** @format */
 
+import { CardComponent } from "./CardComponent";
+
 import { useContext } from "react";
 import AnimeContext from "../context/AnimeContext";
-import { CardComponent } from "./CardComponent";
 
 export const TopTenComponent = anime => {
 	const { trendingAnimeList } = useContext(AnimeContext);
