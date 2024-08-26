@@ -17,28 +17,45 @@ function App() {
 	const { fetchError } = useContext(AnimeContext);
 
 	if (fetchError)
-		return <h2 style={{ marginTop: "2rem" }}>{fetchError.message}</h2>;
+		return <h2 style={{ marginTop: "10rem" }}>{fetchError.message}</h2>;
 
 	return (
 		<Routes>
+			{/* Home */}
 			<Route
 				path='/'
 				element={<HomePage />}></Route>
+
+			{/* ----------------------------------------------------------------------------------------- */}
+			{/* Trending */}
+
 			<Route
 				path='/trending'
 				element={<TrendingPage />}></Route>
 			<Route
 				path='/trending/:pageNum'
 				element={<TrendingPage />}></Route>
+
+			{/* ----------------------------------------------------------------------------------------- */}
+			{/* All */}
+
 			<Route
 				path='/all'
 				element={<AllAnimePage />}></Route>
 			<Route
 				path='/all/:pageNum'
 				element={<AllAnimePage />}></Route>
+
+			{/* ----------------------------------------------------------------------------------------- */}
+			{/* Specs */}
+
 			<Route
 				path='/anime/:id'
 				element={<AnimeSpecsPage />}></Route>
+
+			{/* ----------------------------------------------------------------------------------------- */}
+			{/* Results */}
+
 			<Route
 				path='/results'
 				element={<ResultsPage />}></Route>
@@ -48,6 +65,10 @@ function App() {
 			<Route
 				path='/results/:query/:pageNum'
 				element={<ResultsPage />}></Route>
+
+			{/* ----------------------------------------------------------------------------------------- */}
+			{/* Not Found */}
+
 			<Route
 				path='*'
 				element={<NotFoundPage />}></Route>

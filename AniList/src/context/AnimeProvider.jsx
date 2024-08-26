@@ -8,7 +8,6 @@ const AnimeProvider = ({ children }) => {
 	// these states are for the fetch data
 	const [trendingAnimeList, setTrendingAnimeList] = useState([]);
 	const [lastPageNum, setLastPageNum] = useState(1);
-	const [queryAnimeList, setQueryAnimeList] = useState([]);
 	const [fetchError, setFetchError] = useState(null);
 	const [active, setActive] = useState("home");
 
@@ -32,8 +31,6 @@ const AnimeProvider = ({ children }) => {
 	const value = {
 		trendingAnimeList,
 		lastPageNum,
-		queryAnimeList,
-		setQueryAnimeList,
 		fetchError,
 		setFetchError,
 		active,

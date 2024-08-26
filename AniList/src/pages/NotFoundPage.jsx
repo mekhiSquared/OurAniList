@@ -14,7 +14,7 @@ const NotFoundPage = () => {
 	return (
 		<>
 			<NavBar />
-			<h1>Page not Found</h1>
+			<h1 style={{ marginTop: "10rem" }}>Page not Found</h1>
 		</>
 	);
 };
