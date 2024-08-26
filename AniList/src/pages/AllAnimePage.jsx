@@ -2,6 +2,7 @@
 
 import NavBar from "../components/NavBar";
 import { CardComponent } from "../components/CardComponent";
+import { TopTenComponent } from "../components/TopTenComponent";
 
 import { useState, useContext, useEffect } from "react";
 import AnimeContext from "../context/AnimeContext";
@@ -75,18 +76,27 @@ const AllAnimePage = () => {
 					<button disabled>Next {">>"}</button>
 				)}
 			</ul>
-			<ul
+			<section
 				style={{
 					display: "grid",
-					gridTemplateColumns: "1fr 1fr 1fr 1fr",
-					gap: "8px",
+					gridTemplateColumns: "4fr 1fr",
+					padding: "15px",
+					gap: "1rem",
 				}}>
-				{currPageList?.map(anime => (
-					<li key={anime.mal_id}>
-						<CardComponent anime={anime} />
-					</li>
-				))}
-			</ul>
+				<ul
+					style={{
+						display: "grid",
+						gridTemplateColumns: "1fr 1fr 1fr 1fr",
+						gap: "8px",
+					}}>
+					{currPageList?.map(anime => (
+						<li key={anime.mal_id}>
+							<CardComponent anime={anime} />
+						</li>
+					))}
+				</ul>
+				<TopTenComponent />
+			</section>
 		</>
 	);
 };
