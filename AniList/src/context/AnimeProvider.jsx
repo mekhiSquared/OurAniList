@@ -22,8 +22,7 @@ const AnimeProvider = ({ children }) => {
 
 			if (data) {
 				setTrendingAnimeList(data.data);
-				if (lastPageNum !== data.pagination["last_visible_page"])
-					setLastPageNum(data.pagination["last_visible_page"]);
+				setLastPageNum(data.pagination["last_visible_page"]);
 			}
 			if (error) setFetchError(error);
 		};
