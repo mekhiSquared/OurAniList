@@ -15,7 +15,15 @@ const HomePage = () => {
     <>
       <section id="homepageBkg">
         <NavBar />
-        <img id="logo" src={logo} alt="logo" srcSet="" />
+        <img
+          id="logo"
+          src={logo}
+          alt="logo"
+          srcSet=""
+          style={{
+            height: "30vw",
+          }}
+        />
         <p
           style={{
             fontSize: "2rem", // Larger font size
