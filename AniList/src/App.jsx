@@ -17,7 +17,7 @@ function App() {
 	const { fetchError } = useContext(AnimeContext);
 
 	if (fetchError)
-		return <h2 style={{ marginTop: "2rem" }}>{fetchError.message}</h2>;
+		return <h2 style={{ marginTop: "10rem" }}>{fetchError.message}</h2>;
 
 	return (
 		<Routes>

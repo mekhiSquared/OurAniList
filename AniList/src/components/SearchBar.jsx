@@ -1,28 +1,19 @@
 /** @format */
 
-import { useContext, useState } from "react";
-import AnimeContext from "../context/AnimeContext";
-import { handleFetch } from "../utils";
+import { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 
 export const SearchBar = () => {
-	const { setFetchError, setQueryAnimeList } = useContext(AnimeContext);
 	const [search, setSearch] = useState("");
 	const navigate = useNavigate();
 
 	const submit = async e => {
 		e.preventDefault();
-		const [data, error] = await handleFetch(
-			`https://api.jikan.moe/v4/anime?sfw&q=${search}`
-		);
-
-		if (data) setQueryAnimeList(data.data);
-		if (error) setFetchError(error);
 
 		const query = search.includes("/") ? search.replaceAll("/", "%2F") : search;
 
-		navigate(`/results/${query}`);
+		navigate(`/results/${query}/1`);
 	};
 
 	return (
