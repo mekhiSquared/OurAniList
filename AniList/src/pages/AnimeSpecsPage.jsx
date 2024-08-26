@@ -261,6 +261,7 @@ const AnimeSpecsPage = () => {
               <div
                 key={section.id}
                 style={{
+                  color: "black",
                   cursor: "pointer",
                   padding: "1rem",
                   marginRight: "1rem",
