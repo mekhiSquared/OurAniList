@@ -6,6 +6,7 @@ import AnimeContext from "./context/AnimeContext";
 
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
+import AllAnimePage from "./pages/AllAnimePage";
 import TrendingPage from "./pages/TrendingPage";
 import AnimeSpecsPage from "./pages/AnimeSpecsPage";
 import ResultsPage from "./pages/ResultsPage";
@@ -21,6 +22,12 @@ function App() {
 			<Route
 				path='/'
 				element={<HomePage />}></Route>
+			<Route
+				path='/allanime'
+				element={<AllAnimePage />}></Route>
+			<Route
+				path='/allanime/:pageNum'
+				element={<AllAnimePage />}></Route>
 			<Route
 				path='/trending'
 				element={<TrendingPage />}></Route>
