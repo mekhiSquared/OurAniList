@@ -109,7 +109,7 @@ const AnimeSpecsPage = () => {
 							<p style={{ margin: 0 }}>{anime.type}</p>
 						</div>
 
-						<div
+						<div id="faves"
 							style={{
 								display: "inline-flex",
 								alignItems: "center",

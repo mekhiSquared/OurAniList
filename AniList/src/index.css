@@ -88,7 +88,12 @@ button:focus-visible {
 }
 
 #fig:hover {
-  background-color: #e0e0e0; /* Light grey background on hover */
+  background-color: rgba(
+    105,
+    105,
+    105,
+    0.1
+  ); /* Light grey background on hover */
 }
 #topTenContainer {
   width: 15%; /* Shrink the width of the container */
