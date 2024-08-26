@@ -4,16 +4,18 @@ import NavBar from "../components/NavBar";
 import { CardComponent } from "../components/CardComponent";
 import { TopTenComponent } from "../components/TopTenComponent";
 
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import AnimeContext from "../context/AnimeContext";
 import { handleFetch } from "../utils";
 
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 
 const ResultsPage = () => {
 	const { queryAnimeList, setQueryAnimeList, setFetchError, setActive } =
 		useContext(AnimeContext);
 	const { query, pageNum } = useParams();
+	const [lastPageNum, setLastPageNum] = useState(1);
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		if (!queryAnimeList.length) {

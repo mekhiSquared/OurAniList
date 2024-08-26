@@ -22,7 +22,7 @@ export const SearchBar = () => {
 
 		const query = search.includes("/") ? search.replaceAll("/", "%2F") : search;
 
-		navigate(`/results/${query}`);
+		navigate(`/results/${query}/1`);
 	};
 
 	return (
@@ -48,6 +48,7 @@ export const SearchBar = () => {
 				id='searchBar'
 				value={search}
 				onChange={e => setSearch(e.target.value)}
+				required
 				style={{
 					flex: "1",
 					padding: "0.5rem",
