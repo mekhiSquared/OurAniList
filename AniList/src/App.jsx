@@ -23,10 +23,10 @@ function App() {
 				path='/'
 				element={<HomePage />}></Route>
 			<Route
-				path='/allanime'
+				path='/all'
 				element={<AllAnimePage />}></Route>
 			<Route
-				path='/allanime/:pageNum'
+				path='/all/:pageNum'
 				element={<AllAnimePage />}></Route>
 			<Route
 				path='/trending'
