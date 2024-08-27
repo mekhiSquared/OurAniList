@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 const NavBar = () => {
 	const { active } = useContext(AnimeContext);
 	return (
-		<nav style={{ position: "sticky", top: "0", width: "100%" }}>
+		<nav style={{ position: "sticky", zIndex: 2, top: "0", width: "100%" }}>
 			<ul
 				style={{
 					display: "flex",
