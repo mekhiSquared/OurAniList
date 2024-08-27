@@ -12,10 +12,10 @@ const NotFoundPage = () => {
 	});
 
 	return (
-		<>
+		<section>
 			<NavBar />
 			<h1 style={{ marginTop: "10rem" }}>Page not Found</h1>
-		</>
+		</section>
 	);
 };
 

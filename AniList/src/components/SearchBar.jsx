@@ -27,7 +27,8 @@ export const SearchBar = () => {
 				padding: "0.75rem 1rem",
 				borderRadius: "8px",
 				boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-			}}>
+			}}
+			aria-label='Search Bar'>
 			<label
 				htmlFor='searchBar'
 				style={{ display: "none" }}>
