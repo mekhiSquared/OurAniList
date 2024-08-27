@@ -20,59 +20,61 @@ function App() {
 		return <h2 style={{ marginTop: "10rem" }}>{fetchError.message}</h2>;
 
 	return (
-		<Routes>
-			{/* Home */}
-			<Route
-				path='/'
-				element={<HomePage />}></Route>
+		<main>
+			<Routes>
+				{/* Home */}
+				<Route
+					path='/'
+					element={<HomePage />}></Route>
 
-			{/* ----------------------------------------------------------------------------------------- */}
-			{/* Trending */}
+				{/* ----------------------------------------------------------------------------------------- */}
+				{/* Trending */}
 
-			<Route
-				path='/trending'
-				element={<TrendingPage />}></Route>
-			<Route
-				path='/trending/:pageNum'
-				element={<TrendingPage />}></Route>
+				<Route
+					path='/trending'
+					element={<TrendingPage />}></Route>
+				<Route
+					path='/trending/:pageNum'
+					element={<TrendingPage />}></Route>
 
-			{/* ----------------------------------------------------------------------------------------- */}
-			{/* All */}
+				{/* ----------------------------------------------------------------------------------------- */}
+				{/* All */}
 
-			<Route
-				path='/all'
-				element={<AllAnimePage />}></Route>
-			<Route
-				path='/all/:pageNum'
-				element={<AllAnimePage />}></Route>
+				<Route
+					path='/all'
+					element={<AllAnimePage />}></Route>
+				<Route
+					path='/all/:pageNum'
+					element={<AllAnimePage />}></Route>
 
-			{/* ----------------------------------------------------------------------------------------- */}
-			{/* Specs */}
+				{/* ----------------------------------------------------------------------------------------- */}
+				{/* Specs */}
 
-			<Route
-				path='/anime/:id'
-				element={<AnimeSpecsPage />}></Route>
+				<Route
+					path='/anime/:id'
+					element={<AnimeSpecsPage />}></Route>
 
-			{/* ----------------------------------------------------------------------------------------- */}
-			{/* Results */}
+				{/* ----------------------------------------------------------------------------------------- */}
+				{/* Results */}
 
-			<Route
-				path='/results'
-				element={<ResultsPage />}></Route>
-			<Route
-				path='/results/:query'
-				element={<ResultsPage />}></Route>
-			<Route
-				path='/results/:query/:pageNum'
-				element={<ResultsPage />}></Route>
+				<Route
+					path='/results'
+					element={<ResultsPage />}></Route>
+				<Route
+					path='/results/:query'
+					element={<ResultsPage />}></Route>
+				<Route
+					path='/results/:query/:pageNum'
+					element={<ResultsPage />}></Route>
 
-			{/* ----------------------------------------------------------------------------------------- */}
-			{/* Not Found */}
+				{/* ----------------------------------------------------------------------------------------- */}
+				{/* Not Found */}
 
-			<Route
-				path='*'
-				element={<NotFoundPage />}></Route>
-		</Routes>
+				<Route
+					path='*'
+					element={<NotFoundPage />}></Route>
+			</Routes>
+		</main>
 	);
 }
 
