@@ -11,3 +11,6 @@ As a group, answer the questions below. For each of these questions, consider sp
 **Write your reflection using markdown**.
 
 ## Reflection Response
+
+Our team communication was flawless, we had daily stand-ups and stand-downs on discord messages. Communication was thoughtful and thorough. Maintaining the **SCRUM** Board helped us stay accountable and held us to a time frame to get parts of the project done promptly. It was also very helpful in getting our MVP finished before the weekend. It also helped us keep the MAJOR parts of our project completed rather quickly. We used each other as sounding boards and it almost mirrored a game of ping pong.
+I would have changed nothing as our timeline and project coordination were perfect. We even worked on stretch features faster than expected, even though we couldn't get all of them.
